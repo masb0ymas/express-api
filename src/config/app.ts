@@ -3,12 +3,12 @@ import cors from 'cors'
 import express, { Application, Request, Response } from 'express'
 import helmet from 'helmet'
 import path from 'path'
-import { pinoHttp } from 'pino-http'
 import expressErrorHandle from '~/app/middleware/errorHandle'
 import expressErrorValidation from '~/app/middleware/errorValidation'
 import expressRateLimit from '~/app/middleware/rateLimit'
 import expressWithState from '~/app/middleware/withState'
 import { Route } from '~/app/routes/route'
+import { allowedCors } from '~/lib/constant/allowedCors'
 import ErrorResponse from '~/lib/http/errors'
 import { __dirname } from '~/lib/string'
 import { httpLogger } from './logger'
@@ -29,7 +29,7 @@ export class App {
     this._app.use(express.static(path.resolve(`${__dirname}/public`)))
     this._app.use(compression())
     this._app.use(helmet())
-    this._app.use(cors())
+    this._app.use(cors({ origin: allowedCors }))
 
     this._app.use(expressRateLimit())
     this._app.use(expressWithState())
