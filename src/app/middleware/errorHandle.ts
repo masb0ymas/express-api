@@ -3,7 +3,7 @@ import _ from 'lodash'
 import multer from 'multer'
 import ErrorResponse from '~/lib/http/errors'
 
-type DtoErrorResponse = {
+interface DtoErrorResponse {
   statusCode: number
   error: string
   message: string
