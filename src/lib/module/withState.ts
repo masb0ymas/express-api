@@ -8,6 +8,21 @@ export default class WithState {
 
   constructor(req: Request) {
     this.req = req
+
+    this.req.setState = this.setState.bind(this)
+    this.req.setBody = this.setBody.bind(this)
+    this.req.setFieldState = this.setFieldState.bind(this)
+    this.req.getState = this.getState.bind(this)
+    this.req.getCookies = this.getCookies.bind(this)
+    this.req.getHeaders = this.getHeaders.bind(this)
+    this.req.getQuery = this.getQuery.bind(this)
+    this.req.getQueryPolluted = this.getQueryPolluted.bind(this)
+    this.req.getParams = this.getParams.bind(this)
+    this.req.getBody = this.getBody.bind(this)
+    this.req.getSingleArrayFile = this.getSingleArrayFile.bind(this)
+    this.req.pickSingleFieldMulter = this.pickSingleFieldMulter.bind(this)
+    this.req.getMultiArrayFile = this.getMultiArrayFile.bind(this)
+    this.req.pickMultiFieldMulter = this.pickMultiFieldMulter.bind(this)
   }
 
   setState(value: object): void {
