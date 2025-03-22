@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express'
 import { asyncHandler } from '~/lib/asyncHandler'
 import HttpResponse from '~/lib/http/response'
 import { __dirname, require } from '~/lib/string'
+import { v1Route } from './v1'
 
 const route = express.Router()
 
@@ -42,5 +43,7 @@ route.get(
     res.status(200).json(httpResponse)
   })
 )
+
+route.use('/v1', v1Route)
 
 export { route as Route }
