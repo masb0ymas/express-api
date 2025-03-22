@@ -2405,6 +2405,11 @@ plimit-lit@^1.2.6:
   dependencies:
     queue-lit "^1.5.1"
 
+pm2-runtime@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/pm2-runtime/-/pm2-runtime-5.4.1.tgz#18a904ccb2889efc45b44ec517d9691ae5af1e69"
+  integrity sha512-ywzOFlwf1KJHRRq2aqHEid/Qy3YptDlkOAo5dTC1oBo4H5OyDK7CAk3cBMN1AjOdKRSHkHP5DrmWIOeRc7IHPw==
+
 possible-typed-array-names@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.1.0.tgz#93e3582bc0e5426586d9d07b79ee40fc841de4ae"
