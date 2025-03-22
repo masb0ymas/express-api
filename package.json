@@ -13,6 +13,8 @@
     "build:watch": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
     "dev:watch": "concurrently \"npm run build:watch\" \"npm run watch-dev\"",
     "watch-dev": "nodemon --watch \"dist/**/*\" -e js ./dist/main.js",
+    "start:staging": "NODE_ENV=staging pm2-runtime ./dist/main.js",
+    "start:production": "NODE_ENV=production pm2-runtime ./dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -38,6 +40,8 @@
     "pino": "^9.6.0",
     "pino-http": "^10.4.0",
     "pino-pretty": "^13.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -48,6 +52,8 @@
     "@types/lodash": "^4.17.16",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.13.10",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
     "nodemon": "^3.1.9",
