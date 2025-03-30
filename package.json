@@ -1,7 +1,7 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
+  "name": "express-api",
+  "version": "0.0.1",
+  "description": "A simple Express API with TypeScript",
   "main": "src/main.ts",
   "private": true,
   "type": "module",
@@ -10,15 +10,26 @@
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "tsc && tsc-alias",
+    "dev": "concurrently \"npm run build:watch\" \"npm run watch-dev\"",
     "build:watch": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
-    "dev:watch": "concurrently \"npm run build:watch\" \"npm run watch-dev\"",
     "watch-dev": "nodemon --watch \"dist/**/*\" -e js ./dist/main.js",
     "start:staging": "NODE_ENV=staging pm2-runtime ./dist/main.js",
     "start:production": "NODE_ENV=production pm2-runtime ./dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prerelease": "npm-run-all prebuild",
+    "postrelease": "git push --follow-tags origin main",
+    "release": "release-it",
+    "release:pre": "release-it --preRelease=beta",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "api",
+    "typescript"
+  ],
+  "author": "masb0ymas <me@masb0ymas.com>",
   "license": "ISC",
   "engines": {
     "node": ">=20.x"
@@ -28,6 +39,7 @@
     "compression": "^1.8.0",
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
@@ -46,22 +58,23 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@eslint/js": "^9.23.0",
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/lodash": "^4.17.16",
     "@types/multer": "^1.4.12",
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.13.14",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
-    "eslint": "^9.22.0",
+    "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
+    "release-it": "^18.1.2",
     "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.11",
+    "tsc-alias": "^1.8.13",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.27.0"
+    "typescript-eslint": "^8.28.0"
   }
 }
