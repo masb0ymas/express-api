@@ -1,4 +1,4 @@
-import type WithState from '~/lib/module/withState'
+import type WithState from '~/lib/module/with-state'
 
 declare global {
   namespace Express {

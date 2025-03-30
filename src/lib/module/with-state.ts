@@ -1,7 +1,7 @@
 import { Request } from 'express'
 import _ from 'lodash'
-import getterObject from '../getterObject'
-import { pickMultiFieldMulter, pickSingleFieldMulter } from './withMulter'
+import getterObject from '../getter-object'
+import { pickMultiFieldMulter, pickSingleFieldMulter } from './with-multer'
 
 export default class WithState {
   private readonly req: Request

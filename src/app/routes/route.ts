@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { asyncHandler } from '~/lib/asyncHandler'
+import { asyncHandler } from '~/lib/async-handler'
 import HttpResponse from '~/lib/http/response'
 import { __dirname, require } from '~/lib/string'
 import { v1Route } from './v1'
