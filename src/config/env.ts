@@ -1,6 +1,19 @@
+import 'dotenv/config'
+import { validate } from '~/lib/validate'
+
 export const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
-  APP_PORT: Number(process.env.APP_PORT) || 8000,
+  APP_PORT: validate.number(process.env.APP_PORT) || 8000,
   APP_NAME: process.env.APP_NAME || 'Backend',
   APP_URL: process.env.APP_URL || 'http://localhost:8000',
+
+  TYPEORM_CONNECTION: process.env.TYPEORM_CONNECTION || 'postgres',
+  TYPEORM_HOST: process.env.TYPEORM_HOST || 'localhost',
+  TYPEORM_PORT: validate.number(process.env.TYPEORM_PORT) || 5432,
+  TYPEORM_USERNAME: process.env.TYPEORM_USERNAME || 'postgres',
+  TYPEORM_PASSWORD: process.env.TYPEORM_PASSWORD || 'postgres',
+  TYPEORM_DATABASE: process.env.TYPEORM_DATABASE || 'postgres',
+  TYPEORM_SYNCHRONIZE: validate.boolean(process.env.TYPEORM_SYNCHRONIZE) || true,
+  TYPEORM_LOGGING: validate.boolean(process.env.TYPEORM_LOGGING) || true,
+  TYPEORM_MIGRATIONS_RUN: validate.boolean(process.env.TYPEORM_MIGRATIONS_RUN) || true,
 }
