@@ -33,8 +33,8 @@ export const logger = pino(
 )
 
 export const httpLogger = pinoHttp({
-  logger,
-
+  // @ts-expect-error
+  logger: logger,
   // Define a custom request id function
   genReqId: function (req, res) {
     const existingID = req.id ?? req.headers['x-request-id']

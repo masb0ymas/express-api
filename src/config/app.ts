@@ -1,6 +1,6 @@
 import compression from 'compression'
 import cors from 'cors'
-import express, { Application, Request, Response } from 'express'
+import express, { Application, ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
 import path from 'path'
 import expressErrorHandle from '~/app/middleware/error-handle'
@@ -54,10 +54,10 @@ export class App {
 
   public get create() {
     // error validation handle
-    this._app.use(expressErrorValidation)
+    this._app.use(expressErrorValidation as ErrorRequestHandler)
 
     // error global handle
-    this._app.use(expressErrorHandle)
+    this._app.use(expressErrorHandle as ErrorRequestHandler)
 
     return this._app
   }
